@@ -36,9 +36,8 @@ The script expects an Excel file containing the following columns:
 - `RT`: Reaction time corresponding to each response.
 
 ## Output Files
-1. `Block_PES_results.csv`: PES results summarized by participant.
-2. `Participant_PES_results.csv`: Average PES values for each participant.
-3. `raw_pes_data.csv`: Processed data including computed PES and highlighted sequences.
+1. `Participant_PES_results.csv`: Average PES values for each participant.
+2. `raw_pes_data.csv`: Processed data including computed PES and highlighted sequences.
 
 ## Instructions
 1. Update the script to match your file name and directory.
