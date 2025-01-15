@@ -7,28 +7,28 @@ library(writexl)
 setwd("yourdirectory")
 
 
-datam <- read_excel("yourdata.xlsx")
+datam = read_excel("yourdata.xlsx")
 
-pattern <- c("C", "C", "E", "C")
-rows_to_keep <- c()
-highlight_column <- rep(NA, nrow(datam))
+pattern = c("C", "C", "E", "C")
+rows_to_keep = c()
+highlight_column = rep(NA, nrow(datam))
 
-i <- 1
+i = 1
 while (i <= (nrow(datam) - length(pattern) + 1)) {
   if (all(datam$response[i:(i + length(pattern) - 1)] == pattern)) {
-    rows_to_keep <- c(rows_to_keep, i:(i + length(pattern) - 1))
-    highlight_column[i:(i + length(pattern) - 1)] <- "Highlighted"
+    rows_to_keep = c(rows_to_keep, i:(i + length(pattern) - 1))
+    highlight_column[i:(i + length(pattern) - 1)] = "Highlighted"
     i <- i + length(pattern)
   } else {
-    i <- i + 1
+    i = i + 1
   }
 }
 
-data <- datam[rows_to_keep, ]
-datam$Highlight <- highlight_column
+data = datam[rows_to_keep, ]
+datam$Highlight = highlight_column
 
 
-pes_data <- data %>%
+pes_data = data %>%
   group_by(participant) %>%
   mutate(
     RTpre_error = ifelse(response == "E", lag(RT, default = NA), NA),
@@ -40,7 +40,7 @@ pes_data <- data %>%
   ungroup()
 
 
-Participant_PES_results <- pes_data %>%
+Participant_PES_results = pes_data %>%
   filter(!is.na(PES) & response == "E") %>%
   group_by(participant) %>%
   summarize(mean_PES = mean(PES, na.rm = TRUE), .groups = "drop")
@@ -50,7 +50,7 @@ write.csv(participant_pes_results, "Participant_PES_results.csv", row.names = FA
 write.csv(pes_data, "raw_pes_data.csv", row.names = FALSE)
 
 
-plot_data <- pes_data %>%
+plot_data = pes_data %>%
   summarise(
     RTpre_error_mean = mean(RTpre_error, na.rm = TRUE),
     RTpost_error_mean = mean(RTpost_error, na.rm = TRUE),
