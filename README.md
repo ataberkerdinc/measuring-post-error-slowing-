@@ -1,6 +1,6 @@
 # Measuring Post Error Slowing Using Robust Method
 
-This repository contains an R script for analyzing Post Error Slowing (PES) using a robust method (Dutilh et al. 2012). The analysis is centered on identifying specific sequences of responses and calculating reaction time differences around error responses. 
+This repository contains an R script for analyzing Post Error Slowing (PES) using the robust method (Dutilh et al. 2012). The analysis is centered on identifying specific sequences of responses and calculating reaction time differences around error responses. 
 
 This approach avoids contamination by global performance trends by comparing post-error RTs to pre-error RTs that are also post-correct trials from the same trial sequence
 
